@@ -66,7 +66,7 @@ const Home = () => {
 
 
       <div className='container text-center'>
-        {loaded ? (<>
+        {loaded ? <>(
           {
             foodCat.length > 0 ? foodCat.map((data) => {
               return (
@@ -96,7 +96,8 @@ const Home = () => {
               );
             }) : <div>"not any item"</div>
           }
-        </>) : <div>loading....</div>}
+        )</> : <div>loading....</div>}
+
       </div>
 
       <div> <Footer /> </div>
