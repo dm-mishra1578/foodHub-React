@@ -35,7 +35,7 @@ const reducer = (state, action) => {
 export const CartProvider = ({ children }) => {
 
     const [state, dispatch] = useReducer(reducer, [])
-    const [loaded, setLoaded] = useState(false);
+    const [loaded, setLoaded] = useState(true);
 
     return (
 
