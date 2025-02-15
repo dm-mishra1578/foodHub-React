@@ -1,8 +1,10 @@
-import React, { createContext, useContext, useReducer } from 'react';
+import React, { createContext, useContext, useReducer, useState } from 'react';
 
 const CartStateContext = createContext();
 
 const CartDispatchContext = createContext();
+
+const LoadedContext = createContext();
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -33,14 +35,16 @@ const reducer = (state, action) => {
 export const CartProvider = ({ children }) => {
 
     const [state, dispatch] = useReducer(reducer, [])
+    const [loaded, setLoaded] = useState(false);
 
     return (
 
         <CartDispatchContext.Provider value={dispatch}>
 
             <CartStateContext.Provider value={state}>
+             <LoadedContext.Provider value={{loaded, setLoaded}}>
                 {children}
-
+                </LoadedContext.Provider>
             </CartStateContext.Provider>
 
         </CartDispatchContext.Provider>
@@ -49,5 +53,5 @@ export const CartProvider = ({ children }) => {
 }
 
 export const useCart = () => useContext(CartStateContext);
-
+export const useloading =()=>useContext(LoadedContext);
 export const useDispatchCart = () => useContext(CartDispatchContext);

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 // import img from '../assets/images.jpeg'
-import { useCart, useDispatchCart } from '../ContextReducer';
+import { useCart, useDispatchCart, useloading } from '../ContextReducer';
 
 const Cart = (props) => {
   let foodItem = props.foodItems;
